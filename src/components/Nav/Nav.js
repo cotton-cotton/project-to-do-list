@@ -11,7 +11,7 @@ const Nav = () => {
     return () => clearInterval(time);
   }, []);
   return (
-    <nav className="flex justify-between w-100% h-80px px-70px bg-deep-gray">
+    <nav className="flex justify-between max-w-100% h-80px px-70px bg-deep-gray">
       <div className="flex justify-center items-center w-20%">
         <img src="images/to-do-list-logo.png" alt="logo" />
       </div>

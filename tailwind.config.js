@@ -17,7 +17,8 @@ module.exports = {
       '10px': '10px',
       '13px': '13px',
       '14px': '14px',
-      '15px': '16px',
+      '15px': '15px',
+      '18px': '18px',
       '20px': '20px',
       '23px': '23px',
       '25px': '25px',
@@ -31,6 +32,9 @@ module.exports = {
     },
     spacing: {
       '2px': '2px',
+    },
+    maxWidth: {
+      '100%': '100%',
     },
     width: {
       '15%': '15%',
@@ -50,11 +54,17 @@ module.exports = {
       '75px': '75px',
       '80px': '80px',
       '100px': '100px',
+      '300px': '300px',
     },
     borderRadius: {
       '10px': '10px',
     },
+    margin: {
+      '10px': '10px',
+      '20px': '20px',
+    },
     padding: {
+      '30px': '30px',
       '50px': '50px',
       '70px': '70px',
       '50px': '80px',
