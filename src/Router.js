@@ -2,15 +2,16 @@ import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
+import SignUp from './pages/SignUp/SignUp';
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Nav />
       <Routes>
-        {/* <Route path="/" element={<Main />} />
+        {/* <Route path="/" element={<Main />} /> */}
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/signin" element={<SignIn />} /> */}
+        {/* <Route path="/signin" element={<SignIn />} /> */}
       </Routes>
       <Footer />
     </BrowserRouter>
