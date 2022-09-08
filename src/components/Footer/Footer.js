@@ -13,7 +13,7 @@ const Footer = () => {
         <p>GITHUB</p>
         <p>BLOG</p>
       </section>
-      <section className="flex flex-col justify-between h-60px mt-20px">
+      <section className="flex flex-col justify-between h-60px">
         <p className="text-18px font-bold">Niboo's Toy Project</p>
         <span className="flex items-center justify-center">
           <FaRegSmileWink />
