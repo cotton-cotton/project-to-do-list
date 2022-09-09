@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import logo from '../../';
+import { Link } from 'react-router-dom';
 
 const Nav = () => {
   const [date, setDate] = useState(new Date());
@@ -20,18 +20,22 @@ const Nav = () => {
         <span>{date.toLocaleTimeString()}</span>
       </div>
       <div className="flex justify-between w-20% px-70px items-center font-antonio">
-        <button
-          type="button"
-          className="w-100px h-40px bg-main-blue text-light-gray font-semi-bold rounded-10px border border-light-gray"
-        >
-          Sign Up
-        </button>
-        <button
-          type="button"
-          className="w-100px h-40px bg-main-blue text-light-gray font-semi-bold rounded-10px border border-light-gray"
-        >
-          Sign In
-        </button>
+        <Link to="/signup">
+          <button
+            type="button"
+            className="w-100px h-40px bg-main-blue text-light-gray font-semi-bold rounded-10px border border-light-gray"
+          >
+            Sign Up
+          </button>
+        </Link>
+        <Link to="/signin">
+          <button
+            type="button"
+            className="w-100px h-40px bg-main-blue text-light-gray font-semi-bold rounded-10px border border-light-gray"
+          >
+            Sign In
+          </button>
+        </Link>
       </div>
     </nav>
   );
