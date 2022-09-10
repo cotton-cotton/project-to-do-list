@@ -8,8 +8,16 @@ export const SignUpData = [
     message: { name: '2자 이상 입력하세요.' },
   },
   {
+    id: 'email',
+    name: 'userEmail',
+    title: 'Email',
+    placeholder: '이메일',
+    type: 'text',
+    message: { name: '이메일 형식을 지켜주세요.' },
+  },
+  {
     id: 'nickName',
-    name: 'userNickName(ID)',
+    name: 'userNickName',
     title: 'NickName(ID)',
     placeholder: '닉네임(ID)',
     type: 'text',
