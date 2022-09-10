@@ -4,11 +4,21 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import InputContainer from '../../components/InputContainer/InputContainer';
 import { SignUpData } from './SignUpData';
 
+import {
+  firebaseAuth,
+  createUserWithEmailAndPassword,
+} from '../../shared/firebase';
+
+const USER_NAME_DATA = [];
+const USER_NICKNAME_DATA = [];
+const USER_PASSWORD_DATA = [];
+
 const SignUp = () => {
   const navigate = useNavigate();
 
   const [inputValue, setInputValue] = useState({
     userName: '',
+    userEmail: '',
     userNickName: '',
     userPassword: '',
     userPasswordConfirm: '',
@@ -18,12 +28,18 @@ const SignUp = () => {
   const [equalPassword, setEqualPassword] = useState(false);
 
   const [nameVal, setNameVal] = useState(false);
+  const [emailVal, setEmailVal] = useState(false);
   const [nickNameVal, setNickNameVal] = useState(false);
   const [passwordVal, setPasswordVal] = useState(false);
   const [confirmVal, setConfirmVal] = useState(false);
 
-  const { userName, userNickName, userPassword, userPasswordConfirm } =
-    inputValue;
+  const {
+    userName,
+    userEmail,
+    userNickName,
+    userPassword,
+    userPasswordConfirm,
+  } = inputValue;
 
   const onChangeValue = event => {
     const { name, value } = event.target;
@@ -33,6 +49,7 @@ const SignUp = () => {
     });
   };
 
+  const emailReg = new RegExp('[a-zA-Z0-9.-]\\.[a-zA-Z]{2,6}$');
   const passwordReg = new RegExp(
     '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])(?=.*[0-9])[A-Za-z\\d$@$!%*?&]{8,45}'
   );
@@ -58,21 +75,51 @@ const SignUp = () => {
   const isActiveSubmit =
     userName.length <= 2 &&
     userNickName.length <= 2 &&
-    passwordReg.test(userPassword) &&
+    // passwordReg.test(userPassword) &&
     checkboxActive;
 
-  const isCheckedValidation = event => {
-    const name = event.target.name;
-    const inputVal = event.target.value.length;
+  // const isCheckedValidation = event => {
+  //   const name = event.target.name;
+  //   const inputVal = event.target.value.length;
 
-    name === 'userName' && inputVal > 1 ? setNameVal(true) : setNameVal(false);
-    name === 'userNickName(ID)' && inputVal > 1
-      ? setNickNameVal(true)
-      : setNickNameVal(false);
-    name === 'userPassword' && passwordReg.test(userPassword)
-      ? setPasswordVal(true)
-      : setPasswordVal(false);
-    // isPasswordConfirm ? setConfirmVal(true) : setConfirmVal(false);
+  //   name === 'userName' && inputVal > 1 ? setNameVal(true) : setNameVal(false);
+  //   name === 'userEmail' && emailReg.test(userEmail)
+  //     ? setEmailVal(true)
+  //     : setEmailVal(false);
+  //   name === 'userNickName(ID)' && inputVal > 1
+  //     ? setNickNameVal(true)
+  //     : setNickNameVal(false);
+  //   name === 'userPassword' && passwordReg.test(userPassword)
+  //     ? setPasswordVal(true)
+  //     : setPasswordVal(false);
+  //   // isPasswordConfirm ? setConfirmVal(true) : setConfirmVal(false);
+  // };
+  // console.log(nameVal);
+  // console.log(emailVal);
+  // console.log(passwordVal);
+  const onRegister = async () => {
+    try {
+      const createdUser = await createUserWithEmailAndPassword(
+        firebaseAuth,
+        userEmail,
+        userPassword
+      );
+
+      console.log(createdUser);
+      localStorage.setItem('user', JSON.stringify(userNickName));
+      navigate('/signin');
+    } catch (error) {
+      if ('auth/invalid-email') {
+        alert('이메일 형식을 지켜주세요.');
+      } else if ('auth/email-already-in-use') {
+        alert('이미 존재하는 이메일 입니다.');
+      } else if ('auth/invalid-email') {
+        alert('이메일 형식을 지켜주세요.');
+      } else if ('auth / weak - password') {
+        alert('비밀번호를 6자 이상 입력해주세요.');
+      }
+      console.log(error);
+    }
   };
 
   return (
@@ -95,9 +142,10 @@ const SignUp = () => {
                 onChange={event => {
                   onChangeValue(event);
                   // isPasswordConfirm(event);
-                  isCheckedValidation(event);
+                  //isCheckedValidation(event);
                 }}
                 nameVal={nameVal}
+                emailVal={emailVal}
                 nickNameVal={nickNameVal}
                 passwordVal={passwordVal}
               />
@@ -115,8 +163,8 @@ const SignUp = () => {
             <button
               type="button"
               className={`${isActiveSubmit ? 'active-btn' : 'inActive-btn'}`}
-              disabled={isActiveSubmit ? false : true}
-              onClick={() => navigate('/signin')}
+              // disabled={isActiveSubmit ? false : true}
+              onClick={() => onRegister()}
             >
               SUBMIT
             </button>

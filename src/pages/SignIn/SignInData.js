@@ -5,7 +5,15 @@ export const SignInData = [
     title: 'NickName(ID)',
     placeholder: '닉네임(ID)',
     type: 'text',
-    message: { nickName: '2자 이상 입력하세요.' },
+    // message: { nickName: '2자 이상 입력하세요.' },
+  },
+  {
+    id: 'email',
+    name: 'userEmail',
+    title: 'Email',
+    placeholder: '이메일',
+    type: 'text',
+    // message: { name: '2자 이상 입력하세요.' },
   },
   {
     id: 'password',
@@ -13,6 +21,6 @@ export const SignInData = [
     title: 'Password',
     placeholder: '비밀번호',
     type: 'password',
-    message: { password: '대소문자, 특수문자, 숫자 1자이상 포함해야됩니다.' },
+    // message: { password: '대소문자, 특수문자, 숫자 1자이상 포함해야됩니다.' },
   },
 ];

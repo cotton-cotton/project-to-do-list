@@ -40,7 +40,7 @@ const InputContainer = ({
         onChange={onChange}
         // placeholder={placeholder}
       />
-      {!nameVal && valMessage ? (
+      {/* {!nameVal && valMessage ? (
         <p className="pt-5px text-13px text-middle-gray">{message.name}</p>
       ) : null}
       {!nickNameVal && valMessage ? (
@@ -48,7 +48,7 @@ const InputContainer = ({
       ) : null}
       {!passwordVal && valMessage ? (
         <p className="pt-10px text-13px text-middle-gray">{message.password}</p>
-      ) : null}
+      ) : null} */}
     </form>
   );
 };
