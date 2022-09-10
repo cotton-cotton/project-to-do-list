@@ -5,7 +5,7 @@ export const SignUpData = [
     title: 'Name',
     placeholder: '이름',
     type: 'text',
-    message: { name: '1자 이상 입력하세요.' },
+    message: { name: '2자 이상 입력하세요.' },
   },
   {
     id: 'nickName',

@@ -9,4 +9,10 @@
   .input-border {
     @apply w-90% h-20px bg-deep-gray border-b border-black outline-0;
   }
+  .active-btn {
+    @apply w-100px h-40px mb-20px bg-main-blue text-light-gray border border-light-gray;
+  }
+  .inActive-btn {
+    @apply w-100px h-40px mb-20px bg-middle-gray text-light-gray border border-light-gray;
+  }
 }
