@@ -15,6 +15,7 @@ module.exports = {
     },
     fontSize: {
       '10px': '10px',
+      '12px': '12px',
       '13px': '13px',
       '14px': '14px',
       '15px': '15px',
@@ -63,6 +64,7 @@ module.exports = {
       '100px': '100px',
       '300px': '300px',
       '680px': '680px',
+      '750px': '750px',
     },
     borderRadius: {
       '10px': '10px',
@@ -76,6 +78,7 @@ module.exports = {
       '40px': '40px',
     },
     padding: {
+      '5px': '5px',
       '20px': '20px',
       '30px': '30px',
       '50px': '50px',
