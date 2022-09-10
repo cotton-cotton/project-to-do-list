@@ -4,7 +4,7 @@
 
 @layer components {
   .input-border-focused {
-    @apply w-90% h-20px bg-deep-gray border-b border-white outline-0;
+    @apply w-90% h-20px bg-deep-gray border border-b border-white outline-0;
   }
   .input-border {
     @apply w-90% h-20px bg-deep-gray border-b border-black outline-0;
