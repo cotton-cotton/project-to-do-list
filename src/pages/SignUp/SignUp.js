@@ -118,7 +118,6 @@ const SignUp = () => {
       } else if ('auth / weak - password') {
         alert('비밀번호를 6자 이상 입력해주세요.');
       }
-      console.log(error);
     }
   };
 

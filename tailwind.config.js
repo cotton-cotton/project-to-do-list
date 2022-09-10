@@ -5,10 +5,14 @@ module.exports = {
     colors: {
       white: '#fff',
       black: '#262626',
+      'light-black': '#282828',
       'deep-gray': '#494949',
       'middle-gray': '#7f7b7b',
       'light-gray': '#babab8',
       'main-blue': '#5c7187',
+      'box-black': 'rgba(225, 225, 225, 0.1)',
+      'border-black': 'rgba(255, 255, 255, 0.5)',
+      'border-light-black': 'rgba(225, 225, 225, 0.2)',
     },
     fontFamily: {
       antonio: ['Antonio', 'Arial', 'Sans-serif'],
@@ -67,6 +71,7 @@ module.exports = {
       '750px': '750px',
     },
     borderRadius: {
+      '50%': '50%',
       '10px': '10px',
     },
     margin: {
@@ -87,6 +92,10 @@ module.exports = {
     },
     opacity: {
       '100%': '100%',
+    },
+    boxShadow: {
+      'main-shadow': '10px 10px 30px rgba(255, 255, 255, 0.1)',
+      'bar-shadow': '1px 1px 10px #fff',
     },
   },
   plugins: [require('tailwindcss-text-fill-stroke')],

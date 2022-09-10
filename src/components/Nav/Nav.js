@@ -16,12 +16,12 @@ const Nav = () => {
   //   }
   // };
   // test();
-  // useEffect(() => {
-  //   const time = setInterval(() => {
-  //     setDate(new Date());
-  //   }, 1000);
-  //   return () => clearInterval(time);
-  // }, []);
+  useEffect(() => {
+    const time = setInterval(() => {
+      setDate(new Date());
+    }, 1000);
+    return () => clearInterval(time);
+  }, []);
   const onLogout = () => {
     firebaseAuth
       .signOut()
@@ -35,13 +35,13 @@ const Nav = () => {
       });
   };
   return (
-    <nav className="flex justify-between max-w-100% h-80px px-70px bg-deep-gray">
+    <nav className="relative flex justify-between max-w-100% h-80px px-70px bg-deep-gray shadow-bar-shadow z-10">
       <div className="flex justify-center items-center w-20%">
         <img src="images/to-do-list-logo.png" alt="logo" />
       </div>
       <div className="flex justify-between items-center w-15% px-80px text-23px text-middle-gray font-bold font-antonio">
-        {/* <span>{date.toLocaleDateString()}</span>
-        <span>{date.toLocaleTimeString()}</span> */}
+        <span>{date.toLocaleDateString()}</span>
+        <span>{date.toLocaleTimeString()}</span>
       </div>
       <div className="flex justify-between w-20% px-70px items-center font-antonio">
         {userToken ? (
