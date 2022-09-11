@@ -1,12 +1,12 @@
 export const SignInData = [
-  {
-    id: 'nickName',
-    name: 'userNickName(ID)',
-    title: 'NickName(ID)',
-    placeholder: '닉네임(ID)',
-    type: 'text',
-    // message: { nickName: '2자 이상 입력하세요.' },
-  },
+  // {
+  //   id: 'nickName',
+  //   name: 'userNickName(ID)',
+  //   title: 'NickName(ID)',
+  //   placeholder: '닉네임(ID)',
+  //   type: 'text',
+  //   // message: { nickName: '2자 이상 입력하세요.' },
+  // },
   {
     id: 'email',
     name: 'userEmail',

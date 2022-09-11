@@ -122,8 +122,8 @@ const SignUp = () => {
   };
 
   return (
-    <main className="flex justify-center items-center max-w-100% h-750px">
-      <main className="w-23% h-90% py-30px bg-deep-gray text-light-gray font-antonio">
+    <main className="flex justify-center items-center max-w-100% h-750px bg-white">
+      <main className="w-23% h-90% py-30px text-middle-gray font-antonio">
         <section className="flex flex-col items-center">
           <p className="flex items-start w-80% mb-20px text-30px text-main-blue font-bold">
             SIGN UP
@@ -170,7 +170,7 @@ const SignUp = () => {
             <Link to="/">
               <button
                 type="button"
-                className="w-100px h-40px mb-20px bg-main-blue text-light-gray border border-light-gray
+                className="w-100px h-40px mb-20px bg-main-blue text-white border border-light-gray
               "
               >
                 CANCEL

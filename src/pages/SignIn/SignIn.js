@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import InputContainer from '../../components/InputContainer/InputContainer';
 import { firebaseAuth } from '../../shared/firebase';
 import { SignInData } from './SignInData';
 
 const SignIn = () => {
+  const navigate = useNavigate();
+
   const [inputValue, setInputValue] = useState({
     userEmail: '',
     userPassword: '',
@@ -19,6 +22,9 @@ const SignIn = () => {
       [name]: value,
     });
   };
+
+  const isActiveSubmit = userEmail.length >= 2 && userPassword.length >= 2;
+
   const onLogin = async () => {
     try {
       const userData = await signInWithEmailAndPassword(
@@ -28,13 +34,16 @@ const SignIn = () => {
       );
       console.log(userData.user.uid);
       localStorage.setItem('token', JSON.stringify(userData.user.uid));
+      const nickName = localStorage.getItem('user');
+      alert(`${nickName}님 환영합니다!`);
+      navigate('/main');
     } catch (error) {
       console.log(error);
     }
   };
   return (
     <main className="flex justify-center items-center max-w-100% h-680px">
-      <main className="w-23% h-90% py-30px bg-deep-gray text-light-gray font-antonio">
+      <main className="w-23% h-90% py-30px bg-white text-middle-gray font-antonio">
         <section className="flex flex-col items-center">
           <p className="flex items-start w-80% mb-30px text-30px text-main-blue font-bold">
             SIGN IN
@@ -52,17 +61,17 @@ const SignIn = () => {
               />
             );
           })}
-          <div className="flex justify-between w-50% my-40px">
+          <div className="flex justify-between w-50% mt-[80px] mb-40px">
             <button
               type="button"
-              className="w-100px h-40px bg-main-blue text-light-gray"
+              className={`${isActiveSubmit ? 'active-btn' : 'inActive-btn'}`}
               onClick={() => onLogin()}
             >
               SIGN IN
             </button>
             <button
               type="button"
-              className="w-100px h-40px mb-20px bg-main-blue text-light-gray"
+              className="w-100px h-40px mb-20px bg-main-blue text-white"
             >
               CANCEL
             </button>
