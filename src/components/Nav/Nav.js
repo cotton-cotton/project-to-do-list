@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { firebaseAuth } from '../../shared/firebase';
 
 const Nav = () => {
+  const navigate = useNavigate();
+
   const userToken = localStorage.getItem('token');
-  console.log(userToken);
+  //console.log(userToken);
   const [date, setDate] = useState(new Date());
   const [isToken, setIsToken] = useState(false);
 
@@ -29,6 +32,7 @@ const Nav = () => {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
         alert('로그아웃 되었습니다.');
+        navigate('/');
       })
       .catch(error => {
         alert('로그인 실패.');
@@ -54,19 +58,22 @@ const Nav = () => {
           </button>
         ) : (
           <>
-            <button
-              type="button"
-              className="w-100px h-40px bg-main-blue text-light-gray font-semi-bold rounded-10px border border-light-gray"
-            >
-              Sign Up
-            </button>
-
-            <button
-              type="button"
-              className="w-100px h-40px bg-main-blue text-light-gray font-semi-bold rounded-10px border border-light-gray"
-            >
-              Sign In
-            </button>
+            <Link to="/signup">
+              <button
+                type="button"
+                className="w-100px h-40px bg-main-blue text-light-gray font-semi-bold rounded-10px border border-light-gray"
+              >
+                Sign Up
+              </button>
+            </Link>
+            <Link to="/signin">
+              <button
+                type="button"
+                className="w-100px h-40px bg-main-blue text-light-gray font-semi-bold rounded-10px border border-light-gray"
+              >
+                Sign In
+              </button>
+            </Link>
           </>
         )}
       </div>
