@@ -54,6 +54,8 @@ module.exports = {
       '40px': '40px',
       '60px': '60px',
       '100px': '100px',
+      '200px': '200px',
+      '300px': '300px',
     },
     height: {
       '100%': '100%',
@@ -66,6 +68,7 @@ module.exports = {
       '75px': '75px',
       '80px': '80px',
       '100px': '100px',
+      '200px': '200px',
       '300px': '300px',
       '680px': '680px',
       '750px': '750px',
@@ -96,6 +99,7 @@ module.exports = {
     boxShadow: {
       'main-shadow': '10px 10px 30px rgba(255, 255, 255, 0.1)',
       'bar-shadow': '1px 1px 10px #fff',
+      'calendar-shadow': '1px 1px 10px 8px rgba(0, 0, 0, 0.2)',
     },
   },
   plugins: [require('tailwindcss-text-fill-stroke')],
