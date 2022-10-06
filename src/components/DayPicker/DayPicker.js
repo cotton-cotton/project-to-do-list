@@ -4,6 +4,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { ko } from 'date-fns/esm/locale';
 
 import CustomInput from './CustomInput/CustomInput';
+import './datepicker.scss';
 
 const START_DATE_TYPE = 'startDate';
 const END_DATE_TYPE = 'endDate';

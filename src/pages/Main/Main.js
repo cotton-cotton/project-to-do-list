@@ -1,8 +1,14 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { increment } from '../../App/counterSlice';
 import { FcCalendar } from 'react-icons/fc';
 
 const Main = () => {
   const userName = localStorage.getItem('user');
+
+  const dispatch = useDispatch();
+  const count = useSelector(state => state.counter.value);
+  console.log(count);
 
   return (
     <main className="relative max-w-100% h-750px bg-black text-white text-antonio">
@@ -33,6 +39,13 @@ const Main = () => {
                 <p className="text-light-gray text-20px font-semi-bold">
                   &nbsp;Checking Schedule List
                 </p>
+              </button>
+              <p>{count}</p>
+              <button
+                className="w-[100px] border border-black"
+                onClick={() => dispatch(increment())}
+              >
+                click
               </button>
             </div>
           </div>

@@ -6,6 +6,7 @@ import SignUp from './pages/SignUp/SignUp';
 import SignIn from './pages/SignIn/SignIn';
 import Main from './pages/Main/Main';
 import CreatingList from './pages/CreatingList/CreatingList';
+import CheckingList from './pages/CheckingList/CheckingList';
 
 const Router = () => {
   return (
@@ -15,7 +16,8 @@ const Router = () => {
         <Route path="/" element={<Main />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
-        <Route path="/list/create" element={<CreatingList />} />
+        <Route path="/list/creating" element={<CreatingList />} />
+        <Route path="/list/checking" element={<CheckingList />} />
       </Routes>
       <Footer />
     </BrowserRouter>
