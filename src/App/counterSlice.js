@@ -1,15 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 let counterSlice = createSlice({
-  name: 'counter',
+  name: 'toDoList',
   initialState: {
-    value: 0,
-  },
-  reducers: {
-    increment: state => {
-      state.value = state.value + 1;
+    value: {
+      date: '',
+      toDos: '',
     },
+    reducers: {},
   },
 });
 
-export const { increment } = counterSlice.actions;
+// export const { increment } = counterSlice.actions;
 export default counterSlice.reducer;
