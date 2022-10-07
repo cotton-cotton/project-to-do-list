@@ -5,12 +5,16 @@ import DayPicker from '../../components/DayPicker/DayPicker';
 import { FcCalendar } from 'react-icons/fc';
 import { BsCalendarPlus } from 'react-icons/bs';
 
+import { useDispatch, useSelector } from 'react-redux';
+import { toDoActions } from '../../App/toDoListSlice';
+
 const DAY_LIST = ['일', '월', '화', '수', '목', '금', '토'];
-const TO_DO_LIST = [];
-let APPLY_TO_DO_LIST = [];
-let test = [];
 
 const CreatingList = () => {
+  const dispatch = useDispatch();
+  const toDos = useSelector(state => state.toDo.toDoList);
+  console.log(toDos);
+
   const [dateInput, setDateInput] = useState({
     startDate: new Date(),
     endDate: new Date(),
@@ -49,7 +53,7 @@ const CreatingList = () => {
   const [toDo, setToDo] = useState({
     userToDo: '',
   });
-  const [toDoList, setToDoList] = useState(TO_DO_LIST);
+  // const [toDoList, setToDoList] = useState(TO_DO_LIST);
   //const dateId = useRef(1);
   const nextId = useRef(1);
 
@@ -61,11 +65,12 @@ const CreatingList = () => {
       userToDo: event.target.value,
     });
   };
+
   const [selectedDate, setSelectedDate] = useState({
     startDate: selectedStartDate,
     endDate: selectedEndDate,
   });
-  const [pushDate, setPushDate] = useState();
+
   const [applyStart, setApplyStart] = useState();
   const [applyEnd, setApplyEnd] = useState();
   const [applyToDo, setApplyToDo] = useState([]);
@@ -76,56 +81,44 @@ const CreatingList = () => {
     alert('일정이 정상적으로 선택되었습니다.');
   };
 
-  const onCreate = event => {
+  const onCreate = () => {
     if (!applyStart && !applyEnd) {
       alert('일정을 먼저 선택해주세요!');
     } else {
-      const toDos = {
+      const toDoListContainer = {
         id: nextId.current,
         userToDo: userToDo,
         startDate: applyStart,
         endDate: applyEnd,
       };
 
-      setToDoList([...toDoList, toDos]);
+      // setToDoList([...toDoList, toDo]);
 
       setToDo({
         userToDo: '',
-        startDate: '',
-        endDate: '',
       });
       setDateInput({
         startDate: new Date(),
         endDate: new Date(),
       });
       nextId.current += 1;
-      setApplyToDo([...applyToDo, toDos]);
-      // TO_DO_LIST.push(toDos);
-      // localStorage.setItem('todo', JSON.stringify(TO_DO_LIST));
+      setApplyToDo([...applyToDo, toDoListContainer]);
+      dispatch(
+        toDoActions.addToDo({ data: [...applyToDo, toDoListContainer] })
+      );
     }
   };
 
-  // const data = localStorage.getItem('todo');
-  // const data2 = JSON.parse(data);
-  // if (data) {
-  //   const parsedData = JSON.parse(data);
-  //   APPLY_TO_DO_LIST = parsedData;
-  // } else {
-  //   APPLY_TO_DO_LIST = APPLY_TO_DO_LIST;
-  // }
-  // console.log(APPLY_TO_DO_LIST);
+  // const createList = () => {
+  //   console.log('win');
+  //   dispatch(toDoActions.addToDo({ data: applyToDo }));
+  // };
 
   const onRemove = (event, id) => {
-    localStorage.removeItem('todo');
-    const filteredList = applyToDo.filter(list => list.id !== id);
-    // setApplyToDo(filteredList);
-    localStorage.setItem('todos', JSON.stringify(filteredList));
-    const data = localStorage.getItem('todos');
-    if (data) {
-      const parsedData = JSON.parse(data);
-      setApplyToDo(parsedData);
-    }
+    const filteredList = toDos.filter(list => list.id !== id);
+    dispatch(toDoActions.deleteToDo({ data: filteredList }));
   };
+
   return (
     <main className="relative flex flex-col justify-center items-center max-w-100% h-750px my-40px">
       <main className="flex w-50% h-90%">
@@ -140,6 +133,7 @@ const CreatingList = () => {
             <input
               type="text"
               placeholder="일정을 입력해주세요."
+              value={toDo.userToDo}
               onChange={event => onToDo(event)}
               onFocus={() => setFocus(true)}
               onBlur={() => setFocus(false)}
@@ -150,10 +144,14 @@ const CreatingList = () => {
             <button
               type="button"
               className="w-60px h-40px bg-main-blue text-white border border-middle-gray"
-              onClick={() => onCreate()}
+              onClick={() => {
+                onCreate();
+              }}
             >
               확인
             </button>
+            {/* <button onClick={() => dispatch(addToDo())}>click</button>
+            <p>{toDos}</p> */}
           </form>
           {/* {pushDate ? (
           <div class="mt-30px text-18px text-deep-gray">
@@ -163,7 +161,7 @@ const CreatingList = () => {
           </div>
         ) : null} */}
           <section>
-            {applyToDo.map((list, index) => {
+            {toDos.map((list, index) => {
               return (
                 <ToDoListContainer
                   key={index}
@@ -171,7 +169,6 @@ const CreatingList = () => {
                   userToDo={list.userToDo}
                   startDate={list.startDate}
                   endDate={list.endDate}
-                  pushDate={pushDate}
                   onClick={event => onRemove(event, list.id)}
                 />
               );
