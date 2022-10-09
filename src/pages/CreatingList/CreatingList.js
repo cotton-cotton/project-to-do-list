@@ -109,11 +109,6 @@ const CreatingList = () => {
     }
   };
 
-  // const createList = () => {
-  //   console.log('win');
-  //   dispatch(toDoActions.addToDo({ data: applyToDo }));
-  // };
-
   const onRemove = (event, id) => {
     const filteredList = toDos.filter(list => list.id !== id);
     dispatch(toDoActions.deleteToDo({ data: filteredList }));
@@ -160,7 +155,7 @@ const CreatingList = () => {
             </p>
           </div>
         ) : null} */}
-          <section>
+          <section className="overflow-auto">
             {toDos.map((list, index) => {
               return (
                 <ToDoListContainer
@@ -214,7 +209,7 @@ const CreatingList = () => {
       </main>
       <section className="flex items-center mt-25px">
         <p className="mr-20px">일정 확인하러 가기</p>
-        <Link to="/checking">
+        <Link to="/list/checking">
           <button
             type="button"
             className="w-100px h-40px bg-main-blue text-white border border-light-gray"
