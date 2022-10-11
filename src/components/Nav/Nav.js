@@ -11,20 +11,13 @@ const Nav = () => {
   const [date, setDate] = useState(new Date());
   const [isToken, setIsToken] = useState(false);
 
-  // const test = () => {
-  //   if (userToken) {
-  //     setIsToken(true);
-  //   } else if (!userToken) {
-  //     setIsToken(false);
-  //   }
-  // };
-  // test();
   useEffect(() => {
     const time = setInterval(() => {
       setDate(new Date());
     }, 1000);
     return () => clearInterval(time);
   }, []);
+
   const onLogout = () => {
     firebaseAuth
       .signOut()
@@ -38,12 +31,13 @@ const Nav = () => {
         alert('로그인 실패.');
       });
   };
+
   return (
     <nav className="relative flex justify-between max-w-100% h-80px px-70px bg-deep-gray shadow-bar-shadow z-10">
       <div className="flex justify-center items-center w-20%">
         <img src="/images/to-do-list-logo.png" alt="logo" />
       </div>
-      <div className="flex justify-between items-center w-15% px-80px text-23px text-middle-gray font-bold font-antonio">
+      <div className="flex justify-between items-center w-15% px-80px text-20px text-middle-gray font-bold font-antonio">
         <span>{date.toLocaleDateString()}</span>
         <span>{date.toLocaleTimeString()}</span>
       </div>

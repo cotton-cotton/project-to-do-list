@@ -9,9 +9,9 @@ const Footer = () => {
         <img className="w-20%" src="/images/to-do-list-logo.png" alt="logo" />
       </section>
       <section className="flex justify-between items-center w-20% h-60px">
-        <p>EMAIL</p>
-        <p>GITHUB</p>
-        <p>BLOG</p>
+        <a href="mailto:moonevening08@gmail.com">EMAIL</a>
+        <a href="https://github.com/cotton-cotton">GITHUB</a>
+        <a href="https://velog.io/@niboo">BLOG</a>
       </section>
       <section className="flex flex-col justify-between h-60px mt-20px">
         <p className="text-18px font-bold">Niboo's Toy Project</p>
