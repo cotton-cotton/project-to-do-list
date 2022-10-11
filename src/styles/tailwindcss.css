@@ -21,4 +21,16 @@
   .input-schedule {
     @apply w-[300px] h-40px pl-[15px] border-b border-black outline-none;
   }
+  .unChecked-list {
+    @apply flex items-center justify-between w-[400px] h-[120px] mb-15px p-[10px] border-b border-black bg-white rounded-[10px];
+  }
+  .checked-list {
+    @apply flex items-center justify-between w-[400px] h-[120px] mb-15px p-[10px] border-b border-black text-light-gray line-through bg-white rounded-[10px];
+  }
+  .modal-background {
+    @apply flex flex-col items-center w-100% h-100% p-30px bg-gradient-to-r from-light-gray to-main-blue border border-black overflow-auto blur-sm;
+  }
+  .noneModal-background {
+    @apply flex flex-col items-center w-100% h-100% p-30px bg-gradient-to-r from-light-gray to-main-blue border border-black overflow-auto;
+  }
 }

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { BsCalendarPlus } from 'react-icons/bs';
 import { BsTrash } from 'react-icons/bs';
 
-const CheckingListContainer = ({
+const DoneListContainer = ({
   key,
   id,
   userToDo,
@@ -13,14 +13,9 @@ const CheckingListContainer = ({
   checked,
   onClick,
 }) => {
-  //console.log(isChecked);
+  console.log(checked);
   return (
-    <div
-      key={key}
-      id={id}
-      className="
-      flex items-center justify-between w-[400px] h-[120px] mb-15px p-[10px] border-b border-black bg-white rounded-[10px]"
-    >
+    <div key={key} id={id} className={`${'checked-list'}`}>
       <div className="flex text-14px text-middle-gray leading-5">
         <div className="mr-20px">
           <BsCalendarPlus />
@@ -31,15 +26,16 @@ const CheckingListContainer = ({
           <p>{endDate}</p>
         </div>
       </div>
-      <p className="w-[45%] ml-20px text-18px">{userToDo}</p>
-      <input
+      <p className="w-[45%] ml-20px text-20px">{userToDo}</p>
+      {/* <input
         type="checkbox"
-        className="w-[15px] h-[15px] mr-[5px] rounded-[20px] accent-black"
+        className="w-[15px] h-[15px] mr-[5px]"
         onChange={onChange}
         checked={checked}
-      />
+      /> */}
+      <BsTrash className="cursor-pointer" onClick={onClick} />
     </div>
   );
 };
 
-export default CheckingListContainer;
+export default DoneListContainer;
