@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FcCalendar } from 'react-icons/fc';
 
 const Main = () => {
-  const userName = localStorage.getItem('user');
+  const userToken = localStorage.getItem('token');
 
   return (
     <main className="relative max-w-100% h-750px bg-black text-white text-antonio">
@@ -12,9 +13,9 @@ const Main = () => {
       <section className="w-100% h-100% flex justify-center items-center">
         <div className="flex flex-col justify-center items-center w-[450px] h-[450px] bg-box-black border border-middle-gray backdrop-blur-md rounded-10px">
           <div className="flex flex-col justify-between items-center h-[150px]">
-            {userName ? (
+            {userToken ? (
               <p className="text-light-gray text-20px font-semi-bold">
-                니부's Work Space
+                Work's Space!
               </p>
             ) : (
               <p className="text-light-gray text-20px font-semi-bold">
@@ -22,18 +23,28 @@ const Main = () => {
               </p>
             )}
             <div className="flex flex-col justify-between h-80px">
-              <button type="button" className="flex items-center w-100%">
-                <FcCalendar size="30" />
-                <p className="text-light-gray text-20px font-semi-bold">
-                  &nbsp;Creating Schedule List
-                </p>
-              </button>
-              <button type="button" className="flex items-center w-100%">
-                <FcCalendar size="30" />
-                <p className="text-light-gray text-20px font-semi-bold">
-                  &nbsp;Checking Schedule List
-                </p>
-              </button>
+              <Link to="/list/creating">
+                <div type="button" className="flex items-center w-100%">
+                  <FcCalendar size="30" />
+                  <button
+                    className="text-light-gray text-20px font-semi-bold"
+                    disabled={userToken ? false : true}
+                  >
+                    &nbsp;Creating Schedule List
+                  </button>
+                </div>
+              </Link>
+              <Link to="/list/checking">
+                <div type="button" className="flex items-center w-100%">
+                  <FcCalendar size="30" />
+                  <button
+                    className="text-light-gray text-20px font-semi-bold"
+                    disabled={userToken ? false : true}
+                  >
+                    &nbsp;Checking Schedule List
+                  </button>
+                </div>
+              </Link>
             </div>
           </div>
         </div>

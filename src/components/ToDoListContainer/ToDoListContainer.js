@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BsCalendarPlus } from 'react-icons/bs';
 import { BsTrash } from 'react-icons/bs';
 
@@ -8,15 +8,15 @@ const ToDoListContainer = ({
   userToDo,
   startDate,
   endDate,
-  pushDate,
   onClick,
 }) => {
   return (
     <div
       key={key}
-      className="flex items-center justify-between w-[400px] my-30px pb-20px border-b border-black"
+      id={id}
+      className="flex items-center justify-between w-[400px] h-[120px] mb-15px p-[10px] bg-transparent shadow-card-shadow text-deep-gray rounded-[10px]"
     >
-      <div className="flex text-14px text-middle-gray leading-5">
+      <div className="flex text-14px text-deep-gray leading-5">
         <div className="mr-20px">
           <BsCalendarPlus />
         </div>

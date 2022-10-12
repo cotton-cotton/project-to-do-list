@@ -36,7 +36,7 @@ export const SignUpData = [
     name: 'userPasswordConfirm',
     title: 'Confirm Password',
     placeholder: '비밀번호 확인',
-    type: 'text',
+    type: 'password',
     message: { confirm: '비밀번호와 일치하지 않습니다.' },
   },
 ];

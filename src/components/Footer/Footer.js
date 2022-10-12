@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { FaRegSmileWink } from 'react-icons/fa';
 
 const Footer = () => {

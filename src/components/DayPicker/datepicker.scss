@@ -14,7 +14,7 @@
 
 .react-datepicker {
   width: 280px;
-  height: 350px;
+  height: 400px;
   font-family: $datepicker__font-family;
   font-size: $datepicker__font-size;
   background-color: #fff;
@@ -60,6 +60,7 @@
 .react-datepicker__month-year-dropdown-container--scroll {
   display: inline-block;
   margin: 0 2px;
+  height: 500px;
 }
 
 .react-datepicker__current-month,

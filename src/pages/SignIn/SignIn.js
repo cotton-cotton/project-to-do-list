@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import InputContainer from '../../components/InputContainer/InputContainer';
 import { firebaseAuth } from '../../shared/firebase';
@@ -32,18 +33,18 @@ const SignIn = () => {
         userEmail,
         userPassword
       );
-      console.log(userData.user.uid);
+
       localStorage.setItem('token', JSON.stringify(userData.user.uid));
-      const nickName = localStorage.getItem('user');
-      alert(`${nickName}님 환영합니다!`);
-      navigate('/main');
+
+      alert(`환영합니다!`);
+      navigate('/');
     } catch (error) {
-      console.log(error);
+      alert('잘못된 정보입니다.');
     }
   };
   return (
-    <main className="flex justify-center items-center max-w-100% h-680px">
-      <main className="w-23% h-90% py-30px bg-white text-middle-gray font-antonio">
+    <main className="flex justify-center items-center max-w-100% h-750px bg-black">
+      <main className="w-23% h-90% py-30px text-light-gray font-antonio">
         <section className="flex flex-col items-center">
           <p className="flex items-start w-80% mb-30px text-30px text-main-blue font-bold">
             SIGN IN
@@ -61,28 +62,30 @@ const SignIn = () => {
               />
             );
           })}
-          <div className="flex justify-between w-50% mt-[80px] mb-40px">
-            <button
-              type="button"
-              className={`${isActiveSubmit ? 'active-btn' : 'inActive-btn'}`}
-              onClick={() => onLogin()}
-            >
-              SIGN IN
-            </button>
-            <button
-              type="button"
-              className="w-100px h-40px mb-20px bg-main-blue text-white"
-            >
-              CANCEL
-            </button>
+          <div className="flex items-center justify-center w-80% mt-[70px] mb-20px">
+            <div className="flex justify-between w-[68%] mr-30px">
+              <button
+                type="button"
+                className={`${isActiveSubmit ? 'active-btn' : 'inActive-btn'}`}
+                onClick={() => onLogin()}
+              >
+                SIGN IN
+              </button>
+              <Link to="/">
+                <button
+                  type="button"
+                  className="w-100px h-40px mb-20px bg-main-blue text-white border border-light-gray"
+                >
+                  CANCEL
+                </button>
+              </Link>
+            </div>
           </div>
-          <div className="flex mb-20px">
+          <div className="flex mb-20px mr-30px">
             <p>회원가입이 필요하신가요? |&nbsp;</p>
-            <p>SIGN UP</p>
-          </div>
-          <div className="flex">
-            <p>아이디 찾기 |&nbsp;</p>
-            <p>비밀번호 재설정</p>
+            <Link to="/signup">
+              <p>SIGN UP</p>
+            </Link>
           </div>
         </section>
       </main>

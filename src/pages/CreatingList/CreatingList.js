@@ -4,6 +4,7 @@ import ToDoListContainer from '../../components/ToDoListContainer/ToDoListContai
 import DayPicker from '../../components/DayPicker/DayPicker';
 import { FcCalendar } from 'react-icons/fc';
 import { BsCalendarPlus } from 'react-icons/bs';
+import { BsArrowRightSquare } from 'react-icons/bs';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { toDoActions } from '../../App/toDoListSlice';
@@ -13,7 +14,6 @@ const DAY_LIST = ['일', '월', '화', '수', '목', '금', '토'];
 const CreatingList = () => {
   const dispatch = useDispatch();
   const toDos = useSelector(state => state.toDo.toDoList);
-  console.log(toDos);
 
   const [dateInput, setDateInput] = useState({
     startDate: new Date(),
@@ -21,19 +21,11 @@ const CreatingList = () => {
   });
   const [selectedStartDate, setSelectedStartDate] = useState('');
   const [selectedEndDate, setSelectedEndDate] = useState('');
-
   const [focus, setFocus] = useState(false);
+  const [toDo, setToDo] = useState({
+    userToDo: '',
+  });
 
-  const adjustDate = (type, date) => {
-    if (type === 'startDate' && date > dateInput.endDate) {
-      setDateInput({
-        startDate: date,
-        endDate: date,
-      });
-    } else {
-      setDateInput(prevDate => ({ ...prevDate, [type]: date }));
-    }
-  };
   useEffect(() => {
     const startYear = dateInput.startDate.getFullYear();
     const startMonth = 1 + dateInput.startDate.getMonth();
@@ -50,11 +42,17 @@ const CreatingList = () => {
     setSelectedEndDate(`${endYear}년 ${endMonth}월 ${endDate}일(${endDay})`);
   }, [dateInput]);
 
-  const [toDo, setToDo] = useState({
-    userToDo: '',
-  });
-  // const [toDoList, setToDoList] = useState(TO_DO_LIST);
-  //const dateId = useRef(1);
+  const adjustDate = (type, date) => {
+    if (type === 'startDate' && date > dateInput.endDate) {
+      setDateInput({
+        startDate: date,
+        endDate: date,
+      });
+    } else {
+      setDateInput(prevDate => ({ ...prevDate, [type]: date }));
+    }
+  };
+
   const nextId = useRef(1);
 
   const { userToDo } = toDo;
@@ -65,11 +63,6 @@ const CreatingList = () => {
       userToDo: event.target.value,
     });
   };
-
-  const [selectedDate, setSelectedDate] = useState({
-    startDate: selectedStartDate,
-    endDate: selectedEndDate,
-  });
 
   const [applyStart, setApplyStart] = useState();
   const [applyEnd, setApplyEnd] = useState();
@@ -92,8 +85,6 @@ const CreatingList = () => {
         endDate: applyEnd,
       };
 
-      // setToDoList([...toDoList, toDo]);
-
       setToDo({
         userToDo: '',
       });
@@ -109,22 +100,22 @@ const CreatingList = () => {
     }
   };
 
-  const onRemove = (event, id) => {
+  const onRemove = id => {
     const filteredList = toDos.filter(list => list.id !== id);
     dispatch(toDoActions.deleteToDo({ data: filteredList }));
   };
 
   return (
-    <main className="relative flex flex-col justify-center items-center max-w-100% h-750px my-40px">
-      <main className="flex w-50% h-90%">
-        <section className="flex flex-col items-center w-100% h-100% py-30px border border-light-gray">
+    <main className="relative flex flex-col justify-center items-center max-w-100% h-750px bg-gradient-to-r from-bg-light-gray to-main-blue">
+      <main className="flex w-50% h-90% mt-30px">
+        <section className="flex flex-col items-center w-100% h-100% py-30px bg-transparent rounded-[10px] border border-light-gray overflow-auto">
           <div className="flex items-center">
-            <BsCalendarPlus size="30" color="#5c7187" />
-            <p className="ml-10px text-main-blue text-30px font-bold">
+            <BsCalendarPlus size="30" color="#fff" />
+            <p className="ml-10px text-white text-30px font-bold">
               CREATING TO-DO-LIST
             </p>
           </div>
-          <form className="flex justify-between w-[400px] mt-40px">
+          <form className="flex justify-between w-[400px] my-40px">
             <input
               type="text"
               placeholder="일정을 입력해주세요."
@@ -138,86 +129,73 @@ const CreatingList = () => {
             />
             <button
               type="button"
-              className="w-60px h-40px bg-main-blue text-white border border-middle-gray"
+              className="w-60px h-40px bg-white text-main-blue border border-middle-gray"
               onClick={() => {
                 onCreate();
               }}
             >
               확인
             </button>
-            {/* <button onClick={() => dispatch(addToDo())}>click</button>
-            <p>{toDos}</p> */}
           </form>
-          {/* {pushDate ? (
-          <div class="mt-30px text-18px text-deep-gray">
-            <p>
-              {pushDate.startDate} - {pushDate.endDate}
-            </p>
-          </div>
-        ) : null} */}
-          <section className="overflow-auto">
-            {toDos.map((list, index) => {
-              return (
-                <ToDoListContainer
-                  key={index}
-                  id={list.id}
-                  userToDo={list.userToDo}
-                  startDate={list.startDate}
-                  endDate={list.endDate}
-                  onClick={event => onRemove(event, list.id)}
-                />
-              );
-            })}
-            {/* <button type="button">등록</button> */}
-          </section>
+          {toDos.map((list, index) => {
+            return (
+              <ToDoListContainer
+                key={index}
+                id={list.id}
+                userToDo={list.userToDo}
+                startDate={list.startDate}
+                endDate={list.endDate}
+                onClick={() => onRemove(list.id)}
+              />
+            );
+          })}
         </section>
-        <section className="sticky flex flex-col justify-start items-start h-90% text-antonio">
-          <section className="sticky top-0 flex flex-col justify-between items-center w-[350px] h-[300px] mt-[30px] ml-[30px] py-20px border border-middle-gray text-deep-gray rounded-[20px] shadow-calendar-shadow">
-            <div className="flex items-center font-semi-bold">
-              <FcCalendar size="20" />
-              <p className="ml-10px text-18px">일정을 선택해주세요.</p>
-            </div>
-            <section className="flex w-[80%] border border-middle-gray rounded-[20px]">
-              <div className="flex flex-col justify-center items-center w-[150px] h-70px px-[10px] border-r border-middle-gray">
-                <DayPicker
-                  type="start"
-                  dateInput={dateInput}
-                  adjustDate={adjustDate}
-                />
+        <div className="flex flex-col justify-between h-100%">
+          <section className="sticky flex flex-col justify-start items-start text-antonio">
+            <section className="bg-light-box-black border border-middle-gray sticky top-0 flex flex-col justify-between items-center w-[350px] h-[300px] mt-[30px] ml-[30px] py-20px text-deep-gray rounded-[20px] shadow-calendar-shadow">
+              <div className="flex items-center font-semi-bold">
+                <FcCalendar size="20" />
+                <p className="ml-10px text-18px">일정을 선택해주세요.</p>
               </div>
-              <div className="flex flex-col justify-center items-center w-[150px] h-70px px-[10px]">
-                <DayPicker
-                  type="end"
-                  dateInput={dateInput}
-                  adjustDate={adjustDate}
-                />
+              <section className="flex w-[80%] border border-middle-gray rounded-[20px]">
+                <div className="flex flex-col justify-center items-center w-[150px] h-70px px-[10px] border-r border-middle-gray">
+                  <DayPicker
+                    type="start"
+                    dateInput={dateInput}
+                    adjustDate={adjustDate}
+                  />
+                </div>
+                <div className="flex flex-col justify-center items-center w-[150px] h-70px px-[10px]">
+                  <DayPicker
+                    type="end"
+                    dateInput={dateInput}
+                    adjustDate={adjustDate}
+                  />
+                </div>
+              </section>
+              <div className="flex flex-col items-center text-15px">
+                <span>{selectedStartDate}</span>
+                <span>-</span>
+                <span>{selectedEndDate}</span>
               </div>
+              <button
+                onClick={() => onApplyDate()}
+                className="w-100px h-40px bg-main-blue text-white border border-light-gray"
+              >
+                완료
+              </button>
             </section>
-            <div className="flex flex-col items-center text-15px">
-              <span>{selectedStartDate}</span>
-              <span>-</span>
-              <span>{selectedEndDate}</span>
-            </div>
-            <button
-              onClick={() => onApplyDate()}
-              className="w-100px h-40px bg-main-blue text-white border border-light-gray"
-            >
-              완료
-            </button>
           </section>
-        </section>
+          <section className="mt-25px mb-30px">
+            <Link to="/list/checking">
+              <button type="button" className="flex items-center ml-[40px]">
+                <BsArrowRightSquare size="20" />
+                <p className="ml-10px">일정 확인하러 가기</p>
+              </button>
+            </Link>
+          </section>
+        </div>
       </main>
-      <section className="flex items-center mt-25px">
-        <p className="mr-20px">일정 확인하러 가기</p>
-        <Link to="/list/checking">
-          <button
-            type="button"
-            className="w-100px h-40px bg-main-blue text-white border border-light-gray"
-          >
-            이동
-          </button>
-        </Link>
-      </section>
     </main>
   );
 };
