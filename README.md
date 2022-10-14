@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+# To Do List 2022
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## ✨ 개인 프로젝트로 진행되었습니다 :)
 
-## Available Scripts
+## 1. 배포 주소
 
-In the project directory, you can run:
+https://6346420026f61e13d076b26f--jazzy-tanuki-21a616.netlify.app/
 
-### `npm start`
+## 2. 과제 구현 목록
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+***1) Nav Bar***
+- 로고, 현재 시각, 로그인 성공 여부에 따라 SING UP, SIGN IN / LOGOUT 동적으로 바꾸기 기능 구현.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+***2) 회원가입 페이지***
+- 이름, 닉네임(2자 이상), 이메일(’@’, ‘.’ 포함) 유효성 검사, 비밀번호(특수문자, 숫자, 소문자, 대문자 혼합 8자 이상)유효성 검사, 체크박스 체크여부에 따른 버튼 활성화 비활성화 기능구현. 
+- FireBase를 이용한 Users 정보 저장 및 관리.
 
-### `npm test`
+***3) 로그인 페이지***
+- FireBase에 저장 된 유저 정보가 아닐 경우 오류 메시지 출력. 로그인 성공 시 메인화면으로 이동.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+***4) Creating-List***
+- 커스텀 DatePicker 이용하여 날짜 선택 기능 구현
+- Redux-Toolkit을 이용하여 일정 관리 및 등록, 삭제 액션함수 활용
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+***5) Checking-List***
+- Slice에 저장된 데이터를 받아와 In Progress 패널에 출력
+- 체크박스 체크 시 Done패널로 이동
+- 삭제하기 버튼 클릭 시 액션함수를 이용한 데이터 삭제
