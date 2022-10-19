@@ -44,6 +44,12 @@ module.exports = {
     maxWidth: {
       '100%': '100%',
     },
+    screens: {
+      xsm: '100px',
+      sm: '500px',
+      md: '769px',
+      lg: '1025px',
+    },
     width: {
       '15%': '15%',
       '20%': '20%',
@@ -59,6 +65,8 @@ module.exports = {
       '100px': '100px',
       '200px': '200px',
       '300px': '300px',
+      mobile: '769px',
+      tablet: '1025px',
     },
     height: {
       '100%': '100%',
