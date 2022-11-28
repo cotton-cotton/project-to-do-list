@@ -3,7 +3,7 @@ import { FaRegSmileWink } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="relative flex flex-col items-center max-w-100% h-300px bg-deep-gray py-30px text-middle-gray shadow-bar-shadow z-10">
+    <footer className="relative flex flex-col items-center lg:w-100% lg:h-300px md:w-md sm:w-sm bg-deep-gray py-30px text-middle-gray shadow-bar-shadow z-10">
       <section className="flex flex-col items-center">
         <p className="text-20px font-bold">© 2022 TO-DO-LIST</p>
         <img className="w-20%" src="/images/to-do-list-logo.png" alt="logo" />

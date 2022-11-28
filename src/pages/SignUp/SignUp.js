@@ -57,7 +57,7 @@ const SignUp = () => {
     checkboxActive;
   const onRegister = async () => {
     try {
-      const createdUser = await createUserWithEmailAndPassword(
+      const registeredUser = await createUserWithEmailAndPassword(
         firebaseAuth,
         userEmail,
         userPassword
@@ -75,7 +75,6 @@ const SignUp = () => {
       }
     }
   };
-
   return (
     <main className="flex justify-center items-center max-w-100% h-750px bg-black">
       <main className="w-23% h-90% py-30px text-light-gray font-antonio">

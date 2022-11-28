@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   toDoList: [],
-  doingList: [],
+  doneList: [],
 };
 
 const toDoListSlice = createSlice({
@@ -16,7 +16,7 @@ const toDoListSlice = createSlice({
       state.toDoList = action.payload.data;
     },
     progressToDo(state, action) {
-      state.doingList = action.payload.data;
+      state.doneList = action.payload.data;
     },
   },
 });

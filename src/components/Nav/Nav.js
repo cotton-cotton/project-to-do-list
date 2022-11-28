@@ -28,7 +28,7 @@ const Nav = () => {
   };
 
   return (
-    <nav className="relative flex justify-between max-w-100% h-80px px-70px bg-deep-gray items-center shadow-bar-shadow z-10">
+    <nav className="relative flex justify-between lg:w-100% lg:h-80px md:w-md sm:w-sm px-70px bg-deep-gray items-center shadow-bar-shadow z-10">
       <div className="flex justify-center items-center lg:w-20% md:w-[250px] sm:w-200px">
         <Link to="/">
           <img src="/images/to-do-list-logo.png" alt="logo" />

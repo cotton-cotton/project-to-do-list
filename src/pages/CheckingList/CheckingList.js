@@ -12,8 +12,7 @@ import { toDoActions } from '../../App/toDoListSlice';
 const CheckingList = () => {
   const dispatch = useDispatch();
   const toDos = useSelector(state => state.toDo.toDoList);
-  const doing = useSelector(state => state.toDo.doingList);
-
+  const done = useSelector(state => state.toDo.doneList);
   const [removedList, setRemovedList] = useState([]);
   const [modal, setModal] = useState(false);
 
@@ -21,11 +20,12 @@ const CheckingList = () => {
     if (checked) {
       const filteredList = toDos.filter(el => el.id !== list.id);
       dispatch(toDoActions.addToDo({ data: filteredList }));
-      dispatch(toDoActions.progressToDo({ data: [...doing, list] }));
+      dispatch(toDoActions.progressToDo({ data: [...done, list] }));
     }
+    console.log(checked);
   };
   const onRemovedList = () => {
-    const filteredList = doing.filter(list => list.id !== removedList);
+    const filteredList = done.filter(list => list.id !== removedList);
     dispatch(toDoActions.progressToDo({ data: filteredList }));
     setModal(!modal);
   };
@@ -75,7 +75,7 @@ const CheckingList = () => {
                     onChange={event => {
                       onCheckedList(event.target.checked, list);
                     }}
-                    checked={doing.includes(list.id) ? true : false}
+                    checked={done.includes(list.id) ? true : false}
                   />
                 );
               })}
@@ -92,7 +92,7 @@ const CheckingList = () => {
           <div className="flex flex-col items-start w-[45%] h-100% p-30px bg-transparent rounded-[10px] overflow-auto">
             <p className="text-20px text-deep-gray font-semi-bold">Done</p>
             <div className="flex flex-col items-center w-100% my-30px">
-              {doing.map((list, index) => {
+              {done.map((list, index) => {
                 return (
                   <DoneListContainer
                     key={index}

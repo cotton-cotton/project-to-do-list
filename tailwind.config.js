@@ -65,8 +65,9 @@ module.exports = {
       '100px': '100px',
       '200px': '200px',
       '300px': '300px',
-      mobile: '769px',
-      tablet: '1025px',
+      sm: '500px',
+      md: '769px',
+      lg: '1025px',
     },
     height: {
       '100%': '100%',

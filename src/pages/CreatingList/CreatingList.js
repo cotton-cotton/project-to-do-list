@@ -102,6 +102,7 @@ const CreatingList = () => {
 
   const onRemove = id => {
     const filteredList = toDos.filter(list => list.id !== id);
+    setApplyToDo(filteredList);
     dispatch(toDoActions.deleteToDo({ data: filteredList }));
   };
 
