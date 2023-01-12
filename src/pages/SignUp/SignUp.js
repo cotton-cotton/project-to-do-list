@@ -76,10 +76,10 @@ const SignUp = () => {
     }
   };
   return (
-    <main className="flex justify-center items-center max-w-100% h-750px bg-black">
-      <main className="w-23% h-90% py-30px text-light-gray font-antonio">
+    <main className="flex justify-center items-center w-100% 2xl:h-750px xl:h-750px lg:h-750px md:h-700px sm:h-650px xs:h-650px bg-black">
+      <main className="2xl:w-400px 2xl:h-[680px] xl:w-400px xl:h-[680px] lg:w-400px lg:h-[680px] md:w-300px md:h-550px sm:w-250px sm:h-[530px] xs:w-200px xs:h-500px py-30px text-light-gray font-antonio">
         <section className="flex flex-col justify-center items-center">
-          <p className="flex items-start w-80% mb-20px text-30px text-main-blue font-bold">
+          <p className="flex items-start 2xl:w-[320px] xl:w-[320px] lg:w-[320px] md:w-250px sm:w-200px xs:w-160px 2xl:text-30px xl:text-30px lg:text-30px md:text-20px sm:text-16px xs:text-16px mb-20px text-main-blue font-bold">
             SIGN UP
           </p>
           {SignUpData.map((list, index) => {
@@ -98,19 +98,25 @@ const SignUp = () => {
               />
             );
           })}
-          <div className="flex w-80% my-20px">
+          <div className="flex 2xl:w-[320px] xl:w-[320px] lg:w-[320px] md:w-250px sm:w-200px xs:w-160px my-20px">
             <input
               type="checkbox"
-              className="w-20px h-20px accent-black"
+              className="2xl:w-20px 2xl:h-20px xl:w-20px xl:h-20px lg:w-20px lg:h-20px md:w-[15px] md:h-[15px] sm:w-[15px] sm:h-[15px] accent-black"
               onClick={isCheckboxActive}
             />
-            <p className="ml-10px">개인정보 활용에 동의합니다.</p>
+            <p className="2xl:text-16px xl:text-16px lg:text-15px md:text-12px sm:text-12px xs:text-10px ml-10px">
+              개인정보 활용에 동의합니다.
+            </p>
           </div>
-          <div className="flex items-center justify-center w-80% my-20px">
-            <div className="flex justify-between w-[68%] mr-30px">
+          <div className="flex items-center justify-center my-20px">
+            <div className="flex justify-between 2xl:w-[220px] xl:w-[220px] lg:w-[220px] md:w-150px sm:w-140px xs:w-120px mr-30px">
               <button
                 type="button"
-                className={`${isActiveSubmit ? 'active-btn' : 'inActive-btn'}`}
+                className={`${
+                  isActiveSubmit
+                    ? '2xl:w-100px 2xl:h-40px xl:w-100px xl:h-40px lg:w-100px lg:h-40px md:w-70px md:h-30px md:text-14px sm:w-60px sm:h-30px sm:text-10px xs:w-50px xs:h-30px xs:text-10px mb-20px bg-main-blue text-white border border-light-gray;'
+                    : '2xl:w-100px 2xl:h-40px xl:w-100px xl:h-40px lg:w-100px lg:h-40px md:w-70px md:h-30px md:text-14px sm:w-60px sm:h-30px sm:text-10px xs:w-50px xs:h-30px xs:text-10px mb-20px bg-middle-gray text-white border border-light-gray'
+                }`}
                 disabled={isActiveSubmit ? false : true}
                 onClick={() => onRegister()}
               >
@@ -119,7 +125,7 @@ const SignUp = () => {
               <Link to="/">
                 <button
                   type="button"
-                  className="w-100px h-40px mb-20px bg-main-blue text-white border border-light-gray
+                  className="2xl:w-100px 2xl:h-40px 2xl:text-18px xl:w-100px xl:text-18px xl:h-40px lg:w-100px lg:h-40px lg:text-18px md:w-70px md:h-30px md:text-14px sm:w-60px sm:h-30px sm:text-10px xs:w-50px xs:h-30px xs:text-10px mb-20px bg-main-blue text-white border border-light-gray
               "
                 >
                   CANCEL
@@ -127,7 +133,7 @@ const SignUp = () => {
               </Link>
             </div>
           </div>
-          <div className="flex mr-30px">
+          <div className="flex mr-30px 2xl:text-[16px] xl:text-15px lg:text-15px md:text-12px sm:text-10px xs:text-10px">
             <p>이미 회원가입을 하셨다면 |&nbsp;</p>
             <p>SIGN IN</p>
           </div>

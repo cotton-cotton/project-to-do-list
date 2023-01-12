@@ -28,21 +28,21 @@ const Nav = () => {
   };
 
   return (
-    <nav className="relative flex justify-between lg:w-100% lg:h-80px md:w-md sm:w-sm px-70px bg-deep-gray items-center shadow-bar-shadow z-10">
-      <div className="flex justify-center items-center lg:w-20% md:w-[250px] sm:w-200px">
+    <nav className="relative flex justify-between w-100% px-70px bg-deep-gray items-center shadow-bar-shadow z-10">
+      <div className="flex justify-center items-center xl:w-300px lg:w-[250px] md:w-[250px] sm:w-200px xs:w-[150px]">
         <Link to="/">
           <img src="/images/to-do-list-logo.png" alt="logo" />
         </Link>
       </div>
-      <div className="hidden lg:flex items-center px-80px text-18px md:flex px-80px text-middle-gray font-bold font-antonio">
+      <div className="hidden lg:flex justify-center lg:w-300px lg:text-18px md:flex md:w-[250px] md:text-10px md:mx-50px text-middle-gray font-bold font-antonio">
         <span className="mr-20px">{date.toLocaleDateString()}</span>
         <span className="mr-20px">{date.toLocaleTimeString()}</span>
       </div>
-      <div className="flex justify-center items-center py-20px font-antonio lg:text-18px md:text-15px sm:text-15px">
+      <div className="flex justify-center items-center py-20px font-antonio lg:text-18px md:text-15px sm:text-15px xs:text-10px">
         {userToken ? (
           <button
             type="button"
-            className="lg:w-100px h-40px md:w-[80px] h-30px sm:w-60px h-30px bg-main-blue text-light-gray font-semi-bold rounded-10px border border-light-gray"
+            className="lg:w-100px lg:h-40px lg:text-18px md:w-[70px] md:h-[30px] md:text-12px sm:w-60px sm:h-[35px] sm:text-12px xs:w-[55px] xs:h-[25px] mr-20px bg-main-blue text-light-gray font-semi-bold rounded-10px border border-light-gray"
             onClick={() => onLogout()}
           >
             Logout
@@ -52,7 +52,7 @@ const Nav = () => {
             <Link to="/signup">
               <button
                 type="button"
-                className="lg:w-100px h-40px md:w-[80px] h-30px sm:w-[70px] mr-20px bg-main-blue text-light-gray font-semi-bold text-center rounded-10px border border-light-gray"
+                className="lg:w-100px lg:h-40px lg:text-18px md:w-[70px] md:h-[30px] md:text-12px sm:w-60px sm:h-[35px] sm:text-12px xs:w-[55px] xs:h-[25px] mr-20px bg-main-blue text-light-gray font-semi-bold text-center rounded-10px border border-light-gray"
               >
                 Sign Up
               </button>
@@ -60,7 +60,7 @@ const Nav = () => {
             <Link to="/signin">
               <button
                 type="button"
-                className="lg:w-100px h-40px md:w-[80px] h-30px sm:w-[70px]  bg-main-blue text-light-gray font-semi-bold rounded-10px border border-light-gray"
+                className="lg:w-100px lg:h-40px lg:text-18px md:w-[70px] md:h-[30px] md:text-12px sm:w-60px sm:h-[35px] sm:text-12px xs:w-[55px] xs:h-[25px] bg-main-blue text-light-gray font-semi-bold rounded-10px border border-light-gray"
               >
                 Sign In
               </button>
