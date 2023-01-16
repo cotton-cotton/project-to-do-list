@@ -16,8 +16,8 @@ const InputContainer = ({ key, id, name, title, type, onChange }) => {
       <input
         className={`${
           focus === id
-            ? 'w-90% 2xl:h-20px xl:h-20px lg:h-20px md:h-[15px] bg-black border-b-2 border-main-blue outline-0'
-            : 'w-90% 2xl:h-20px xl:h-20px lg:h-20px md:h-[15px] bg-black border-b border-light-gray outline-0'
+            ? 'flex justify-center items-center w-100% 2xl:h-20px xl:h-20px lg:h-20px md:h-[15px] bg-black border-b-2 border-main-blue outline-0'
+            : 'w-100% 2xl:h-20px xl:h-20px lg:h-20px md:h-[15px] bg-black border-b border-light-gray outline-0'
         }`}
         key={key}
         id={id}

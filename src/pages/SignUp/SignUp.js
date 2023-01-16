@@ -109,13 +109,13 @@ const SignUp = () => {
             </p>
           </div>
           <div className="flex items-center justify-center my-20px">
-            <div className="flex justify-between 2xl:w-[220px] xl:w-[220px] lg:w-[220px] md:w-150px sm:w-140px xs:w-120px mr-30px">
+            <div className="flex justify-between 2xl:w-[220px] xl:w-[220px] lg:w-[220px] md:w-150px sm:w-140px xs:w-120px">
               <button
                 type="button"
                 className={`${
                   isActiveSubmit
-                    ? '2xl:w-100px 2xl:h-40px xl:w-100px xl:h-40px lg:w-100px lg:h-40px md:w-70px md:h-30px md:text-14px sm:w-60px sm:h-30px sm:text-10px xs:w-50px xs:h-30px xs:text-10px mb-20px bg-main-blue text-white border border-light-gray;'
-                    : '2xl:w-100px 2xl:h-40px xl:w-100px xl:h-40px lg:w-100px lg:h-40px md:w-70px md:h-30px md:text-14px sm:w-60px sm:h-30px sm:text-10px xs:w-50px xs:h-30px xs:text-10px mb-20px bg-middle-gray text-white border border-light-gray'
+                    ? '2xl:w-100px 2xl:h-40px 2xl:text-18px xl:w-100px xl:h-40px xl:text-18px lg:w-100px lg:h-40px lg:text-18px md:w-70px md:h-30px md:text-14px sm:w-60px sm:h-30px sm:text-10px xs:w-50px xs:h-30px xs:text-10px mb-20px bg-main-blue text-white border border-light-gray;'
+                    : '2xl:w-100px 2xl:h-40px 2xl:text-18px xl:w-100px xl:h-40px xl:text-18px lg:w-100px lg:h-40px lg:text-18px md:w-70px md:h-30px md:text-14px sm:w-60px sm:h-30px sm:text-10px xs:w-50px xs:h-30px xs:text-10px mb-20px bg-middle-gray text-white border border-light-gray'
                 }`}
                 disabled={isActiveSubmit ? false : true}
                 onClick={() => onRegister()}

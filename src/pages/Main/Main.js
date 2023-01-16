@@ -31,7 +31,7 @@ const Main = () => {
                 로그인이 필요한 서비스 입니다.
               </p>
             )}
-            <div className="flex flex-col justify-between 2xl:h-80px xl:h-80px lg:h-70px md:h-70px sm:h-50px xs:h-50px border border-white">
+            <div className="flex flex-col justify-between 2xl:h-80px xl:h-80px lg:h-70px md:h-70px sm:h-50px xs:h-50px">
               <Link to="/list/creating">
                 <div type="button" className="flex items-center w-100%">
                   {/* <div>
