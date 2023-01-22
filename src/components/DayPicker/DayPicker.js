@@ -22,7 +22,7 @@ const DayPicker = ({ type, dateInput, adjustDate }) => {
         adjustDate(type === START ? START_DATE_TYPE : END_DATE_TYPE, date)
       }
       minDate={type === START ? new Date() : dateInput.startDate}
-      className="border border-black"
+      className="border border-black text-30px"
       dateFormat={DATE_FORMAT}
       dateFormatCalendar={DATE_FORMAT_CALENDAR}
       customInput={<CustomInput inputType={type} />}

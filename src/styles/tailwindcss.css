@@ -15,12 +15,12 @@
   .inActive-btn {
     @apply w-100px h-40px mb-20px bg-middle-gray text-white border border-light-gray;
   } */
-  .input-schedule-focused {
+  /* .input-schedule-focused {
     @apply w-[300px] h-40px pl-[15px] bg-transparent border-b-2 border-main-blue outline-none;
   }
   .input-schedule {
     @apply w-[300px] h-40px pl-[15px] bg-transparent border-b border-black outline-none;
-  }
+  } */
   .unChecked-list {
     @apply flex items-center justify-between w-[400px] h-[120px] mb-15px p-[10px] border-b border-black bg-white rounded-[10px];
   }

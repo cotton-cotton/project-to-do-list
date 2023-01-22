@@ -2,19 +2,21 @@ import React from 'react';
 
 const CheckingModal = ({ closeModal, onRemovedList }) => {
   return (
-    <div className="fixed top-[200px] left-0 right-0 bottom-0 flex flex-col z-[99] w-[400px] h-[200px] bg-middle-gray rounded-[5px]">
-      <div className="fixed flex items-center justify-center w-[400px] h-[200px] z-[99] bg-deep-gray rounded-[5px]">
-        <div className="flex flex-col items-center justify-between py-20px h-[150px] text-white">
-          <p className="text-20px">일정을 삭제하시겠습니까?</p>
-          <div className="flex justify-between w-[230px]">
+    <div className="fixed top-[200px] left-0 right-0 bottom-0 flex flex-col z-[99] xl:w-400px xl:h-200px lg:w-300px lg:h-150px xs:w-250px xs:h-130px bg-middle-gray rounded-[5px]">
+      <div className="fixed flex items-center justify-center xl:w-[400px] xl:h-[200px] lg:w-300px lg:h-150px xs:w-250px xs:h-130px z-[99] bg-deep-gray rounded-[5px]">
+        <div className="flex flex-col items-center justify-between xl:py-20px xs:py-[40px] h-[150px] text-white">
+          <p className="xl:text-20px lg:text-16px xs:text-14px ">
+            일정을 삭제하시겠습니까?
+          </p>
+          <div className="flex justify-between xl:w-[230px] lg:w-180px xs:w-130px">
             <button
-              className="w-100px h-[35px] bg-main-blue rounded-[5px] text-15px tracking-[1px]"
+              className="xl:w-100px xl:h-[35px] xl:text-15px lg:w-80px lg:h-30px lg:text-13px xs:w-[55px] xs:h-20px xs:text-10px bg-main-blue rounded-[5px] tracking-[1px]"
               onClick={onRemovedList}
             >
               삭제할게요
             </button>
             <button
-              className="w-100px h-[35px] bg-main-blue rounded-[5px] text-15px tracking-[1px]"
+              className="xl:w-100px xl:h-[35px] xl:text-15px lg:w-80px lg:h-30px lg:text-13px xs:w-[55px] xs:h-20px xs:text-10px bg-main-blue rounded-[5px] tracking-[1px]"
               onClick={closeModal}
             >
               취소할게요
