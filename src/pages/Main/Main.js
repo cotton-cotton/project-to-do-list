@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FcCalendar } from 'react-icons/fc';
 
 const Main = () => {
   const userToken = localStorage.getItem('token');
@@ -23,22 +22,19 @@ const Main = () => {
         <div className="flex flex-col justify-center items-center 2xl:w-450px 2xl:h-450px xl:w-[430px] xl:h-[430px] lg:w-400px lg:h-400px md:w-[370px] md:h-[370px] sm:w-[270px] sm:h-[270px] xs:w-250px h-250px bg-box-black border border-middle-gray backdrop-blur-md rounded-10px">
           <div className="flex flex-col justify-between items-center 2xl:h-150px xl:h-150px lg:h-150px md:h-150px sm:h-100px xs:h-100px">
             {userToken ? (
-              <p className="text-light-gray 2xl:text-20px xl:text-20px lg:text-18px md:text-[16px] sm:text-14px xs:text-12px font-semi-bold">
+              <p className="text-light-gray 2xl:text-1.25rem xl:text-1.25rem lg:text-1.125rem md:text-1rem sm:text-0.875rem xs:text-0.75rem font-semi-bold">
                 Work's Space!
               </p>
             ) : (
-              <p className="text-light-gray 2xl:text-20px xl:text-20px lg:text-18px md:text-[16px] sm:text-14px xs:text-12px font-semi-bold">
+              <p className="text-light-gray 2xl:text-1.25rem xl:text-1.25rem lg:text-1.125rem md:text-1rem sm:text-0.875rem xs:text-0.75rem font-semi-bold">
                 로그인이 필요한 서비스 입니다.
               </p>
             )}
             <div className="flex flex-col justify-between 2xl:h-80px xl:h-80px lg:h-70px md:h-70px sm:h-50px xs:h-50px">
               <Link to="/list/creating">
                 <div type="button" className="flex items-center w-100%">
-                  {/* <div>
-                    <FcCalendar size="25" />
-                  </div> */}
                   <button
-                    className="text-light-gray 2xl:text-20px xl:text-20px lg:text-18px md:text-[16px] sm:text-14px xs:text-12px font-semi-bold"
+                    className="text-light-gray 2xl:text-1.25rem xl:text-1.25rem lg:text-1.125rem md:text-1rem sm:text-0.875rem xs:text-0.75rem font-semi-bold"
                     disabled={userToken ? false : true}
                   >
                     &nbsp;Creating Schedule List
@@ -47,9 +43,8 @@ const Main = () => {
               </Link>
               <Link to="/list/checking">
                 <div type="button" className="flex items-center w-100%">
-                  {/* <FcCalendar size="25" /> */}
                   <button
-                    className="text-light-gray 2xl:text-20px xl:text-20px lg:text-18px md:text-[16px] sm:text-14px xs:text-12px font-semi-bold"
+                    className="text-light-gray 2xl:text-1.25rem xl:text-1.25rem lg:text-1.125rem md:text-1rem sm:text-0.875rem xs:text-0.75rem font-semi-bold"
                     disabled={userToken ? false : true}
                   >
                     &nbsp;Checking Schedule List
@@ -63,4 +58,5 @@ const Main = () => {
     </main>
   );
 };
+
 export default Main;

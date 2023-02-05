@@ -5,11 +5,11 @@ const Footer = () => {
   return (
     <footer className="relative flex flex-col items-center w-100% bg-deep-gray py-30px text-middle-gray shadow-bar-shadow z-10">
       <section className="flex flex-col items-center">
-        <p className="xl:text-20px lg:text-18px md:text-18px sm:text-15px xs:text-12px font-bold">
+        <p className="xl:text-1.563rem lg:text-1.125rem md:text-1.125rem sm:text-0.938rem xs:text-0.75rem font-bold">
           © 2022 TO-DO-LIST
         </p>
         <img
-          className="xl:w-300px lg:w-300px md:w-200px sm:w-200px xs:w-[150px]"
+          className="xl:w-300px lg:w-300px md:w-200px sm:w-200px xs:w-150px"
           src="/images/to-do-list-logo.png"
           alt="logo"
         />
@@ -22,12 +22,12 @@ const Footer = () => {
       </section>
 
       <section className="flex flex-col justify-between h-60px mt-20px">
-        <p className="lg:text-18px md:text-18px sm:text-15px xs:text-12px font-bold">
+        <p className="lg:text-1.125rem md:text-1.125rem sm:text-0.938rem xs:text-0.75rem font-bold">
           Niboo's Toy Project
         </p>
         <span className="flex items-center justify-center">
           <FaRegSmileWink />
-          <p className="ml-10px lg:text-18px md:text-18px sm:text-15px xs:text-12px">
+          <p className="ml-10px lg:text-1.125rem md:text-1.125rem sm:text-0.938rem xs:text-0.75rem">
             NA EUN LEE
           </p>
         </span>
@@ -35,4 +35,5 @@ const Footer = () => {
     </footer>
   );
 };
+
 export default Footer;

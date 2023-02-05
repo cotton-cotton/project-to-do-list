@@ -10,7 +10,7 @@ const InputContainer = ({ key, id, name, title, type, onChange }) => {
 
   return (
     <form className="flex flex-col items-start w-80%">
-      <p className="flex justify-start 2xl:my-15px xl:my-15px lg:my-15px md:my-[12px] sm:my-[6px] xs:my-[2px] 2xl:text-15px xl:text-15px lg:text-15px md:text-12px sm:text-12px xs:text-12px">
+      <p className="flex justify-start 2xl:my-15px xl:my-15px lg:my-15px md:my-[12px] sm:my-[6px] xs:my-[2px] 2xl:text-15px xl:text-15px lg:text-0.938rem md:text-0.75rem sm:text-0.75rem xs:text-0.75rem">
         {title}
       </p>
       <input

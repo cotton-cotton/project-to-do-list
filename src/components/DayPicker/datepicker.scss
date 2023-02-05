@@ -24,6 +24,24 @@
   display: inline-block;
   position: relative;
   border-color: black;
+  @media (min-width: 280px) and (max-width: 639px) {
+    width: 210px;
+    height: 240px;
+  }
+  @media (min-width: 640px) and (max-width: 767px) {
+    width: 210px;
+    height: 240px;
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 230px;
+    height: 260px;
+  }
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    height: 300px;
+  }
+  @media (min-width: 1280px) and (max-width: 1536px) {
+    height: 320px;
+  }
 }
 
 .react-datepicker-popper {
@@ -51,6 +69,24 @@
   &:not(&--has-time-select) {
     border-top-right-radius: $datepicker__border-radius;
   }
+  @media (min-width: 280px) and (max-width: 639px) {
+    width: 208px;
+    height: 50px;
+  }
+  @media (min-width: 640px) and (max-width: 767px) {
+    width: 208px;
+    height: 50px;
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 228px;
+    height: 55px;
+  }
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    height: 80px;
+  }
+  @media (min-width: 1280px) and (max-width: 1536px) {
+    height: 100px;
+  }
 }
 
 .react-datepicker__year-dropdown-container--select,
@@ -70,7 +106,16 @@
   margin: 30px 20px 20px 20px;
   color: $datepicker__header-color;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1rem;
+  @media (min-width: 280px) and (max-width: 639px) {
+    margin: 10px 20px 20px 20px;
+  }
+  @media (min-width: 640px) and (max-width: 767px) {
+    margin: 10px 20px 20px 20px;
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    margin: 10px 20px 20px 10px;
+  }
 }
 
 .react-datepicker-time__header {
@@ -118,7 +163,7 @@
 .react-datepicker__navigation-icon {
   position: relative;
   top: 0px;
-  font-size: 21px;
+  font-size: 1.313rem;
   width: 0;
 
   &::before {
@@ -148,6 +193,24 @@
   float: left;
   opacity: 100;
   z-index: 99;
+  @media (min-width: 280px) and (max-width: 639px) {
+    width: 210px;
+    height: 230px;
+  }
+  @media (min-width: 640px) and (max-width: 767px) {
+    width: 210px;
+    height: 230px;
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 230px;
+    height: 270px;
+  }
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    height: 280px;
+  }
+  @media (min-width: 1280px) and (max-width: 1536px) {
+    height: 300px;
+  }
 }
 
 .react-datepicker__year {
@@ -168,11 +231,21 @@
 }
 
 .react-datepicker__month {
-  margin: 0 auto;
   width: 280px;
-  // margin: $datepicker__margin;
   margin: 13px 0;
   text-align: center;
+  @media (min-width: 280px) and (max-width: 639px) {
+    margin-top: 35px;
+  }
+  @media (min-width: 640px) and (max-width: 767px) {
+    margin-top: 35px;
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    margin-top: 35px;
+  }
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    margin: 40px 0;
+  }
 
   .react-datepicker__month-text,
   .react-datepicker__quarter-text {
@@ -255,14 +328,29 @@
   }
 }
 
-.react-datepicker__day-names,
-.react-datepicker__week {
+.react-datepicker__day-names {
   margin-bottom: -2px;
   white-space: nowrap;
 }
+.react-datepicker__week {
+  margin-bottom: -2px;
+  white-space: nowrap;
+  @media (min-width: 280px) and (max-width: 639px) {
+    width: 180px;
+  }
+  @media (min-width: 640px) and (max-width: 767px) {
+    width: 180px;
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 230px;
+  }
+}
 
 .react-datepicker__day-names {
-  margin-bottom: -8px;
+  margin-top: -8px;
+  @media (min-width: 640px) and (max-width: 767px) {
+    margin-top: -10px;
+  }
 }
 
 .react-datepicker__day-name,
@@ -271,10 +359,29 @@
   box-sizing: border-box;
   color: $datepicker__text-color;
   display: inline-block;
-  // width: $datepicker__item-size;
   line-height: $datepicker__item-size;
   text-align: center;
   padding: 0px 4px;
+  @media (min-width: 280px) and (max-width: 639px) {
+    width: 29px;
+    margin: 0 auto;
+    line-height: 28px;
+  }
+  @media (min-width: 640px) and (max-width: 767px) {
+    width: 29px;
+    margin: 0 auto;
+    line-height: 28px;
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 20px;
+    line-height: 28px;
+  }
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    line-height: 30px;
+  }
+  @media (min-width: 1280px) and (max-width: 1536px) {
+    line-height: 30px;
+  }
 }
 
 .react-datepicker__month,
@@ -392,6 +499,52 @@
   position: relative;
   display: inline-block;
   width: 100%;
+  div {
+    font-size: 0.938rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+  @media (min-width: 280px) and (max-width: 639px) {
+    div {
+      font-size: 0.625rem;
+    }
+    p {
+      font-size: 0.688rem;
+    }
+  }
+  @media (min-width: 640px) and (max-width: 767px) {
+    div {
+      font-size: 0.625rem;
+    }
+    p {
+      font-size: 0.688rem;
+    }
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    div {
+      font-size: 0.625rem;
+    }
+    p {
+      font-size: 0.688rem;
+    }
+  }
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    div {
+      font-size: 0.75rem;
+    }
+    p {
+      font-size: 0.813rem;
+    }
+  }
+  @media (min-width: 1280px) and (max-width: 1536px) {
+    div {
+      font-size: 0.813rem;
+    }
+    p {
+      font-size: 0.875rem;
+    }
+  }
 }
 
 .react-datepicker__year-read-view,
@@ -481,7 +634,7 @@
     height: 16px;
     width: 16px;
     padding: 2px;
-    font-size: 12px;
+    font-size: 0.75rem;
     line-height: 1;
     text-align: center;
     display: table-cell;

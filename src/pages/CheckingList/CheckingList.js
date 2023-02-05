@@ -3,11 +3,11 @@ import CheckingListContainer from '../../components/CheckingListContainer/Checki
 import DoneListContainer from '../../components/DoneListContainer/DoneListContainer';
 import CheckingModal from '../../components/CheckingModal/CheckingModal';
 import { Link } from 'react-router-dom';
-import { BsCalendarPlus } from 'react-icons/bs';
-import { BiMessageSquareAdd } from 'react-icons/bi';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { toDoActions } from '../../App/toDoListSlice';
+
+import { BiMessageSquareAdd } from 'react-icons/bi';
 
 const CheckingList = () => {
   const dispatch = useDispatch();
@@ -52,14 +52,14 @@ const CheckingList = () => {
         className={`${modal ? 'modal-background' : 'noneModal-background'}`}
       >
         <div className="flex items-center">
-          <p className="ml-10px text-white 2xl:text-30px xl:text-30px lg:text-30px md:text-25px sm:text-20px font-bold">
+          <p className="ml-10px text-white 2xl:text-1.875rem xl:text-1.875rem lg:text-1.875rem md:text-1.563rem sm:text-1.25rem font-bold">
             CHECKING TO-DO-LIST
           </p>
         </div>
 
-        <div className="flex md:flex-row xs:flex-col 2xl:w-[60%] xl:w-[70%] lg:w-[70%] md:w-[70%] sm:w-[60%] xs:w-[60%] h-[100%] items-start justify-between mt-50px">
-          <div className="flex flex-col items-start 2xl:w-500px xl:w-400px lg:w-300px md:w-[230px] sm:w-100% xs:w-100% xs:mb-20px h-100% p-30px bg-transparent rounded-[10px] overflow-auto">
-            <p className="xl:text-20px lg:text-18px md:text-16px sm:text-14px xs:text-14px text-deep-gray font-semi-bold">
+        <div className="flex md:flex-row xs:flex-col 2xl:w-60% xl:w-70% lg:w-70% md:w-70% sm:w-60% xs:w-60% h-100% items-start justify-between mt-50px">
+          <div className="flex flex-col items-start 2xl:w-500px xl:w-400px lg:w-300px md:w-[230px] sm:w-100% xs:w-100% xs:mb-20px h-100% p-30px bg-transparent rounded-10px overflow-auto">
+            <p className="xl:text-1.25rem lg:text-1.125rem md:text-1rem sm:text-0.875rem xs:text-0.875rem text-deep-gray font-semi-bold">
               In Progress
             </p>
             <div className="flex flex-col items-center w-100% my-30px">
@@ -82,15 +82,15 @@ const CheckingList = () => {
             <Link to="/list/creating">
               <div className="flex items-center font-semi-bold">
                 <BiMessageSquareAdd size="15" color="#494949" />
-                <button className="2xl:text-16px xl:text-15px lg:text-14px md:text-13px xs:text-12px ml-[5px] text-deep-gray">
+                <button className="2xl:text-1rem xl:text-0.938rem lg:text-0.875rem md:text-0.813rem xs:text-0.75rem ml-5px text-deep-gray">
                   일정 추가하기
                 </button>
               </div>
             </Link>
           </div>
 
-          <div className="flex flex-col items-start 2xl:w-500px xl:w-400px lg:w-300px md:w-[230px] sm:w-100% xs:w-100% h-100% p-30px bg-transparent rounded-[10px] overflow-auto">
-            <p className="xl:text-20px lg:text-18px md:text-16px sm:text-14px xs:text-14px text-deep-gray font-semi-bold">
+          <div className="flex flex-col items-start 2xl:w-500px xl:w-400px lg:w-300px md:w-[230px] sm:w-100% xs:w-100% h-100% p-30px bg-transparent rounded-10px overflow-auto">
+            <p className="xl:text-1.25rem lg:text-1.125rem md:text-1rem sm:text-0.875rem xs:text-0.875rem text-deep-gray font-semi-bold">
               Done
             </p>
             <div className="flex flex-col items-center w-100% my-30px">
@@ -113,4 +113,5 @@ const CheckingList = () => {
     </main>
   );
 };
+
 export default CheckingList;

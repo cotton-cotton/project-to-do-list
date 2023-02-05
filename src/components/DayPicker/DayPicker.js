@@ -1,10 +1,9 @@
 import React from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { ko } from 'date-fns/esm/locale';
+import './datepicker.scss';
 
 import CustomInput from './CustomInput/CustomInput';
-import './datepicker.scss';
 
 const START_DATE_TYPE = 'startDate';
 const END_DATE_TYPE = 'endDate';
@@ -22,7 +21,7 @@ const DayPicker = ({ type, dateInput, adjustDate }) => {
         adjustDate(type === START ? START_DATE_TYPE : END_DATE_TYPE, date)
       }
       minDate={type === START ? new Date() : dateInput.startDate}
-      className="border border-black text-30px"
+      className="border border-black"
       dateFormat={DATE_FORMAT}
       dateFormatCalendar={DATE_FORMAT_CALENDAR}
       customInput={<CustomInput inputType={type} />}
