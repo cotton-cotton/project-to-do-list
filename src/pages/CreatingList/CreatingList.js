@@ -123,7 +123,7 @@ const CreatingList = () => {
               onBlur={() => setFocus(false)}
               className={`${
                 focus
-                  ? 'w-250px h-40px pl-15px bg-transparent border-b-2 border-main-blue outline-none'
+                  ? '2xl:w-[270px] 2xl:text-16px xl:w-250px xl:text-14px lg:w-200px lg:h-40px lg:text-12px md:w-170px md:text-12px sm:w-150px sm:text-10px xs:w-130px xs:text-10px 2xl:pl-15px xl:pl-15px lg:pl-15px md:pl-10px sm:pl-10px xs:pl-10px bg-transparent border-b-2 border-main-blue outline-none'
                   : '2xl:w-[270px] 2xl:text-16px xl:w-250px xl:text-14px lg:w-200px lg:h-40px lg:text-12px md:w-170px md:text-12px sm:w-150px sm:text-10px xs:w-130px xs:text-10px 2xl:pl-15px xl:pl-15px lg:pl-15px md:pl-10px sm:pl-10px xs:pl-10px bg-transparent border-b border-black outline-none'
               }`}
             />
