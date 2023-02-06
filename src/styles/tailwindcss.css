@@ -3,24 +3,6 @@
 @tailwind utilities;
 
 @layer components {
-  /* .input-border-focused {
-    @apply w-90% h-20px bg-black border-b-2 border-main-blue outline-0;
-  }
-  .input-border {
-    @apply w-90% h-20px bg-black border-b border-light-gray outline-0;
-  } */
-  /* .active-btn {
-    @apply w-100px h-40px mb-20px bg-main-blue text-white border border-light-gray;
-  }
-  .inActive-btn {
-    @apply w-100px h-40px mb-20px bg-middle-gray text-white border border-light-gray;
-  } */
-  /* .input-schedule-focused {
-    @apply w-[300px] h-40px pl-[15px] bg-transparent border-b-2 border-main-blue outline-none;
-  }
-  .input-schedule {
-    @apply w-[300px] h-40px pl-[15px] bg-transparent border-b border-black outline-none;
-  } */
   .unChecked-list {
     @apply flex items-center justify-between w-[400px] h-[120px] mb-15px p-[10px] border-b border-black bg-white rounded-[10px];
   }

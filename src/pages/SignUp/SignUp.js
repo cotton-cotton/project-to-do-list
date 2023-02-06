@@ -18,16 +18,14 @@ const SignUp = () => {
   });
 
   const [checkboxActive, setCheckboxActive] = useState(false);
+  const [nameVal, setNameVal] = useState(false);
+  const [emailVal, setEmailVal] = useState(false);
+  const [passwordVal, setPasswordVal] = useState(false);
+  const [confirmVal, setConfirmVal] = useState(false);
 
-  const {
-    userName,
-    userEmail,
-    userNickName,
-    userPassword,
-    userPasswordConfirm,
-  } = inputValue;
+  const { userName, userEmail, userPassword, userPasswordConfirm } = inputValue;
 
-  const onChangeValue = event => {
+  const handleInput = event => {
     const { name, value } = event.target;
     setInputValue({
       ...inputValue,
@@ -35,26 +33,62 @@ const SignUp = () => {
     });
   };
   const isConfirmPassword = userPassword === userPasswordConfirm;
-  const isValidInput = userName.length >= 2 && userNickName.length >= 2;
+  const isValidLetter =
+    userName.length >= 1 &&
+    userEmail.length >= 1 &&
+    userPassword.length >= 1 &&
+    userPasswordConfirm.length >= 1;
 
   const emailReg = new RegExp('[a-zA-Z0-9.-]\\.[a-zA-Z]{2,6}$');
   const passwordReg = new RegExp(
     '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])(?=.*[0-9])[A-Za-z\\d$@$!%*?&]{8,45}'
   );
 
+  const nameValidation = event => {
+    const inputVal = event.target.value;
+    if (inputVal.length > 1) {
+      setNameVal(true);
+    } else if (inputVal.length <= 1) {
+      setNameVal(false);
+    }
+  };
+
+  const emailValidation = event => {
+    const inputVal = event.target.value;
+    if (emailReg.test(inputVal)) {
+      setEmailVal(true);
+    } else if (!emailReg.test(inputVal)) {
+      setEmailVal(false);
+    }
+  };
+
+  const passwordValidation = event => {
+    const inputVal = event.target.value;
+    if (passwordReg.test(inputVal)) {
+      setPasswordVal(true);
+    } else if (!passwordReg.test(inputVal)) {
+      setPasswordVal(false);
+    }
+  };
+
+  const confirmValidation = event => {
+    const inputVal = event.target.value;
+    userPassword === inputVal ? setConfirmVal(true) : setConfirmVal(false);
+  };
+
   const isCheckboxActive = () => {
     setCheckboxActive(!checkboxActive);
   };
 
   const isActiveSubmit =
-    isValidInput &&
+    isValidLetter &&
     emailReg.test(userEmail) &&
     passwordReg.test(userPassword) &&
     isConfirmPassword &&
     checkboxActive;
   const onRegister = async () => {
     try {
-      const registeredUser = await createUserWithEmailAndPassword(
+      await createUserWithEmailAndPassword(
         firebaseAuth,
         userEmail,
         userPassword
@@ -90,8 +124,16 @@ const SignUp = () => {
                 placeholder={list.placeholder}
                 message={list.message}
                 onChange={event => {
-                  onChangeValue(event);
+                  handleInput(event);
+                  nameValidation(event);
+                  emailValidation(event);
+                  passwordValidation(event);
+                  confirmValidation(event);
                 }}
+                nameVal={nameVal}
+                emailVal={emailVal}
+                passwordVal={passwordVal}
+                confirmVal={confirmVal}
               />
             );
           })}
@@ -115,7 +157,7 @@ const SignUp = () => {
                     : '2xl:w-100px 2xl:h-40px 2xl:text-1.125rem xl:w-100px xl:h-40px xl:text-1.125rem lg:w-100px lg:h-40px lg:text-1.125rem md:w-70px md:h-30px md:text-0.875rem sm:w-60px sm:h-30px sm:text-0.625rem xs:w-50px xs:h-30px xs:text-0.625rem mb-20px bg-middle-gray text-white border border-light-gray'
                 }`}
                 disabled={isActiveSubmit ? false : true}
-                onClick={() => onRegister()}
+                onClick={onRegister}
               >
                 SUBMIT
               </button>

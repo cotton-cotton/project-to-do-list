@@ -11,9 +11,12 @@ const SignIn = () => {
     userPassword: '',
   });
 
+  const [emailVal, setEmailVal] = useState(false);
+  const [passwordVal, setPasswordVal] = useState(false);
+
   const { userEmail, userPassword } = inputValue;
 
-  const onChangeValue = event => {
+  const handleInput = event => {
     const { name, value } = event.target;
     setInputValue({
       ...inputValue,
@@ -21,7 +24,33 @@ const SignIn = () => {
     });
   };
 
-  const isActiveSubmit = userEmail.length >= 2 && userPassword.length >= 2;
+  const isValidLetter = userEmail.length >= 1 && userPassword.length >= 1;
+
+  const emailReg = new RegExp('[a-zA-Z0-9.-]\\.[a-zA-Z]{2,6}$');
+  const passwordReg = new RegExp(
+    '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])(?=.*[0-9])[A-Za-z\\d$@$!%*?&]{8,45}'
+  );
+
+  const isActiveSubmit =
+    emailReg.test(userEmail) && passwordReg.test(userPassword) && isValidLetter;
+
+  const emailValidation = event => {
+    const inputVal = event.target.value;
+    if (emailReg.test(inputVal)) {
+      setEmailVal(true);
+    } else if (!emailReg.test(inputVal)) {
+      setEmailVal(false);
+    }
+  };
+
+  const passwordValidation = event => {
+    const inputVal = event.target.value;
+    if (passwordReg.test(inputVal)) {
+      setPasswordVal(true);
+    } else if (!passwordReg.test(inputVal)) {
+      setPasswordVal(false);
+    }
+  };
 
   const onLogin = async () => {
     try {
@@ -56,7 +85,12 @@ const SignIn = () => {
                   title={list.title}
                   type={list.type}
                   placeholder={list.placeholder}
-                  onChange={event => onChangeValue(event)}
+                  message={list.message}
+                  onChange={event => {
+                    handleInput(event);
+                    emailValidation(event);
+                    passwordValidation(event);
+                  }}
                 />
               );
             })}
@@ -71,7 +105,7 @@ const SignIn = () => {
                     : '2xl:w-100px 2xl:h-40px 2xl:text-1.125rem xl:w-100px xl:h-40px xl:text-1.125rem lg:w-100px lg:h-40px lg:text-1.125rem md:w-70px md:h-30px md:text-0.875rem sm:w-60px sm:h-30px sm:text-10px xs:w-50px xs:h-30px xs:text-0.625rem mb-20px bg-middle-gray text-white border border-light-gray'
                 }`}
                 disabled={isActiveSubmit ? false : true}
-                onClick={() => onLogin()}
+                onClick={onLogin}
               >
                 SIGN IN
               </button>

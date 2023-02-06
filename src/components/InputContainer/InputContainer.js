@@ -1,6 +1,18 @@
 import React, { useState } from 'react';
 
-const InputContainer = ({ key, id, name, title, type, onChange }) => {
+const InputContainer = ({
+  key,
+  id,
+  name,
+  title,
+  type,
+  onChange,
+  message,
+  nameVal,
+  emailVal,
+  passwordVal,
+  confirmVal,
+}) => {
   const [focus, setFocus] = useState();
   const [valMessage, setValMessage] = useState(false);
 
@@ -33,6 +45,26 @@ const InputContainer = ({ key, id, name, title, type, onChange }) => {
         }}
         onChange={onChange}
       />
+      {!nameVal && valMessage ? (
+        <p className="mb-[3px] lg:text-0.875rem sm:text-0.75rem xs:text-0.625rem">
+          {message.name}
+        </p>
+      ) : null}
+      {!emailVal && valMessage ? (
+        <p className="mb-[3px] lg:text-0.875rem sm:text-0.75rem xs:text-0.625rem">
+          {message.email}
+        </p>
+      ) : null}
+      {!passwordVal && valMessage ? (
+        <p className="mb-[3px] lg:text-0.875rem sm:text-0.75rem xs:text-0.625rem">
+          {message.password}
+        </p>
+      ) : null}
+      {!confirmVal && valMessage ? (
+        <p className="mb-[3px] lg:text-0.875rem sm:text-0.75rem xs:text-0.625rem">
+          {message.confirm}
+        </p>
+      ) : null}
     </form>
   );
 };

@@ -13,15 +13,7 @@ export const SignUpData = [
     title: 'Email',
     placeholder: '이메일',
     type: 'text',
-    message: { name: '이메일 형식을 지켜주세요.' },
-  },
-  {
-    id: 'nickName',
-    name: 'userNickName',
-    title: 'NickName(ID)',
-    placeholder: '닉네임(ID)',
-    type: 'text',
-    message: { nickName: '2자 이상 입력하세요.' },
+    message: { email: '이메일 형식을 지켜주세요.' },
   },
   {
     id: 'password',
