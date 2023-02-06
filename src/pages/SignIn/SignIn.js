@@ -91,6 +91,8 @@ const SignIn = () => {
                     emailValidation(event);
                     passwordValidation(event);
                   }}
+                  emailVal={emailVal}
+                  passwordVal={passwordVal}
                 />
               );
             })}
