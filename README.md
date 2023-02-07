@@ -4,9 +4,13 @@
 
 ## 1. 배포 주소
 
-https://6346420026f61e13d076b26f--jazzy-tanuki-21a616.netlify.app/
+https://main--stately-torte-36d752.netlify.app/
 
-## 2. 과제 구현 목록
+## 2. 회고록
+
+https://velog.io/@niboo/Project-To-Do-List-2022-%ED%9A%8C%EA%B3%A0%EB%A1%9D
+
+## 3. 과제 구현 목록
 
 ***1) Nav Bar***
 - 로고, 현재 시각, 로그인 성공 여부에 따라 SING UP, SIGN IN / LOGOUT 동적으로 바꾸기 기능 구현.
@@ -26,3 +30,6 @@ https://6346420026f61e13d076b26f--jazzy-tanuki-21a616.netlify.app/
 - Slice에 저장된 데이터를 받아와 In Progress 패널에 출력
 - 체크박스 체크 시 Done패널로 이동
 - 삭제하기 버튼 클릭 시 액션함수를 이용한 데이터 삭제
+
+***6) 반응형 디자인***
+- 디바이스 별 반응형 디자인 구현
